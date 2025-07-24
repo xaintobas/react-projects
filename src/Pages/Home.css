@@ -10,7 +10,7 @@
   --light-shadow: #314c75;
   --card-background: #1e293b;
   --card-bg: #1e293b;
-  --light-border: #727272;
+  --light-border: #7272722a;
   --white-color: #fff;
   --color-grey: #e2e2e2;
 }
@@ -63,6 +63,16 @@ p {
 }
 
 /* FOOTER */
+footer {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  border-top: 1px solid var(--light-border);
+}
+footer a {
+  font-weight: bold;
+  color: var(--light-purple);
+}
 
 /* MAIN CONTENT */
 .main-content {

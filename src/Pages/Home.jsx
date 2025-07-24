@@ -4,6 +4,13 @@ import { Link } from "react-router-dom";
 
 const apps = [
   {
+    path: "/devcard",
+    emoji: "🧑‍💻",
+    name: "Developer Card",
+    description: "A simple developer card exercise.",
+  },
+
+  {
     path: "/counter",
     emoji: "🔄️",
     name: "Counter",
@@ -22,13 +29,6 @@ const apps = [
     emoji: "🪜",
     name: "Steps Navigation",
     description: "A simple step navigation exercise.",
-  },
-
-  {
-    path: "/devcard",
-    emoji: "🧑‍💻",
-    name: "Developer Card",
-    description: "A simple developer card exercise.",
   },
 
   {
