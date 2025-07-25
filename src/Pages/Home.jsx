@@ -24,47 +24,47 @@ const apps = [
     description: "A simple flash card exercise.",
   },
 
-  {
-    path: "/steps",
-    emoji: "🪜",
-    name: "Steps Navigation",
-    description: "A simple step navigation exercise.",
-  },
+  // {
+  //   path: "/steps",
+  //   emoji: "🪜",
+  //   name: "Steps Navigation",
+  //   description: "A simple step navigation exercise.",
+  // },
 
-  {
-    path: "/pizzamenu",
-    emoji: "🍕",
-    name: "Pizza Menu",
-    description: "A simple Pizza Menu exercise.",
-  },
+  // {
+  //   path: "/pizzamenu",
+  //   emoji: "🍕",
+  //   name: "Pizza Menu",
+  //   description: "A simple Pizza Menu exercise.",
+  // },
 
-  {
-    path: "/travellist",
-    emoji: "✈️",
-    name: "Tracel List",
-    description: "A simple travel list exercise.",
-  },
+  // {
+  //   path: "/travellist",
+  //   emoji: "✈️",
+  //   name: "Tracel List",
+  //   description: "A simple travel list exercise.",
+  // },
 
-  {
-    path: "/todo",
-    emoji: "📝",
-    name: "To-Do List App",
-    description: "A simple to-do list application to manage tasks.",
-  },
+  // {
+  //   path: "/todo",
+  //   emoji: "📝",
+  //   name: "To-Do List App",
+  //   description: "A simple to-do list application to manage tasks.",
+  // },
 
-  {
-    path: "/minicart",
-    emoji: "🛒",
-    name: "Mini Cart App",
-    description: "A simple eCommerce app with cart functionality.",
-  },
+  // {
+  //   path: "/minicart",
+  //   emoji: "🛒",
+  //   name: "Mini Cart App",
+  //   description: "A simple eCommerce app with cart functionality.",
+  // },
 
-  {
-    path: "/crypto",
-    emoji: "🪙",
-    name: "Crypto Price",
-    description: "A simple crypto price view exercise.",
-  },
+  // {
+  //   path: "/crypto",
+  //   emoji: "🪙",
+  //   name: "Crypto Price",
+  //   description: "A simple crypto price view exercise.",
+  // },
 ];
 
 function Home() {
