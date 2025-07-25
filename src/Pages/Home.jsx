@@ -11,10 +11,10 @@ const apps = [
   },
 
   {
-    path: "/counter",
-    emoji: "🔄️",
-    name: "Counter",
-    description: "A number counter exercise",
+    path: "/datecounter",
+    emoji: "📅",
+    name: "Date Counter",
+    description: "A date counter exercise",
   },
 
   {
@@ -69,26 +69,28 @@ const apps = [
 
 function Home() {
   return (
-    <div className="main-content">
-      <div className="top-content">
-        <h1 className="site-title">React Mini-Projects Showcase</h1>
-        <p className="site-description">
-          A collection of small applications built to practice while learning ⚛️
-          React. Click on a card to each excercise.
-        </p>
-      </div>
-      <div className="app-container">
-        {apps.map((app) => (
-          <Link key={app.path} to={app.path} className="app-card">
-            <div className="card-content">
-              <span className="card-emoji">{app.emoji}</span>
-              <span>
-                <h2>{app.name}</h2>
-                <p>{app.description}</p>
-              </span>
-            </div>
-          </Link>
-        ))}
+    <div className="container">
+      <div className=" main-content">
+        <div className="top-content">
+          <h1 className="site-title">React Mini-Projects Showcase</h1>
+          <p className="site-description">
+            A collection of small applications built to practice while learning
+            ⚛️ React. Click on a card to each excercise.
+          </p>
+        </div>
+        <div className="app-container">
+          {apps.map((app) => (
+            <Link key={app.path} to={app.path} className="app-card">
+              <div className="card-content">
+                <span className="card-emoji">{app.emoji}</span>
+                <span>
+                  <h2>{app.name}</h2>
+                  <p>{app.description}</p>
+                </span>
+              </div>
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );

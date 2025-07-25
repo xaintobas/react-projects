@@ -1,0 +1,26 @@
+.flash-cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.flash-card {
+  width: 30rem;
+  border: 1px solid #495c7a;
+  background-color: #1b273a;
+  border-radius: 7px;
+  aspect-ratio: 2 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.flash-card.selected {
+  border: 1px solid #99bcec;
+  background-color: #123c7b;
+  color: #fff;
+}

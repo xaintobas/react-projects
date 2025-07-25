@@ -28,11 +28,6 @@ html {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body {
-  background-color: var(--dark-blue);
-  position: relative;
-}
-
 a {
   text-decoration: none;
 }
@@ -48,8 +43,21 @@ p {
   line-height: 1.6;
 }
 
+body {
+  background-color: var(--dark-blue);
+}
+
+#root {
+  margin: 0 auto;
+}
+
+.container {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
 /* HEADER */
-.header {
+header {
   border-bottom: 1px solid var(--light-border);
   padding: 1.5rem 2rem;
   position: fixed;
@@ -67,8 +75,10 @@ footer {
   display: flex;
   justify-content: center;
   padding: 2rem;
+  width: 100%;
   border-top: 1px solid var(--light-border);
 }
+
 footer a {
   font-weight: bold;
   color: var(--light-purple);
@@ -76,7 +86,7 @@ footer a {
 
 /* MAIN CONTENT */
 .main-content {
-  margin: 10rem 3rem 10rem 3rem;
+  margin: 12rem 3rem 10rem 3rem;
 }
 
 /* TOP CONTENT */

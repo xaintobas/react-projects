@@ -1,0 +1,41 @@
+.counter-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.counter-content .step,
+.counter-content .count {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.counter-content .step button,
+.counter-content .count button {
+  outline: none;
+  border: none;
+  padding: 10px;
+  width: 50px;
+  cursor: pointer;
+  font-size: 1.6rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+}
+
+.counter-content .step p,
+.counter-content .count p {
+  font-size: 1.6rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+}
+
+.counter-content .today-date {
+  font-size: 2rem;
+}
+
+.counter-v2 {
+  margin-top: 15rem;
+}
