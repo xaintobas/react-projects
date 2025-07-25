@@ -21,6 +21,7 @@
 
 .flash-card.selected {
   border: 1px solid #99bcec;
-  background-color: #123c7b;
+  background-color: #166ef1;
   color: #fff;
+  font-weight: bold;
 }

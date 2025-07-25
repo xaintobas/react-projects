@@ -5,16 +5,17 @@ function DateCounter() {
   const [step, setStep] = useState(1);
   const [count, setCount] = useState(0);
   const [count1, setCount1] = useState(0);
-  // const [range, setRange] = useState(null);
-
-  function handleRangeChange(e) {
-    console.log(e.target.value);
-  }
+  const [range, setRange] = useState(1);
 
   const date = new Date();
   const date1 = new Date();
   date.setDate(date.getDate() + count);
   date1.setDate(date1.getDate() + count1);
+
+  function handleReset() {
+    setCount1(0);
+    setRange(1);
+  }
 
   return (
     <div className="container">
@@ -40,12 +41,25 @@ function DateCounter() {
         </div>
         <div className="counter-content counter-v2">
           <div className="step">
-            <input type="range" min={0} max={10} onChange={handleRangeChange} />
+            <input
+              type="range"
+              min={0}
+              max={10}
+              onChange={(e) => setRange(Number(e.target.value))}
+              value={range}
+            />
+            <span className="range-number">{range}</span>
           </div>
           <div className="count">
-            <button onClick={() => setCount1((c) => c - 1)}>-</button>
-            <p>Count: {count1}</p>
-            <button onClick={() => setCount1((c) => c + 1)}>+</button>
+            <button onClick={() => setCount1((c) => c - range)}>-</button>
+            <input
+              className="count-input"
+              type="text"
+              value={count1}
+              placeholder="Enter Number"
+              onChange={(e) => setCount1(Number(e.target.value))}
+            />
+            <button onClick={() => setCount1((c) => c + range)}>+</button>
           </div>
           <p className="today-date">
             {count1 === 0
@@ -53,10 +67,16 @@ function DateCounter() {
               : count1 > 0
               ? `${count1} days from today will be ${date1.toDateString()}`
               : `${Math.abs(count1)} days ago was ${date1.toDateString()}`}
-
-            {/* 1 days ago was Tue Jun 22 2027 | 1 days from today is Tue Jun 22
-            2027 |Today is Mon Jun 21 2025 */}
           </p>
+          <div>
+            {count1 !== 0 ? (
+              <button onClick={handleReset} className="counter-reset">
+                Reset
+              </button>
+            ) : (
+              ""
+            )}
+          </div>
         </div>
       </div>
     </div>

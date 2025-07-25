@@ -39,3 +39,27 @@
 .counter-v2 {
   margin-top: 15rem;
 }
+
+.range-number {
+  font-size: 1.6rem;
+  color: white;
+}
+
+.count-input {
+  padding: 1.4rem;
+  border: none;
+  outline: none;
+  font-size: 1.5rem;
+  border-radius: 0.5rem;
+}
+
+.counter-v2 .counter-reset {
+  font-size: 1.7rem;
+  padding: 1rem 5rem;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+}

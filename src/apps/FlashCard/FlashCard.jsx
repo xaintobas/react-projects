@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./FlashCard.css";
 
 const questions = [
@@ -35,13 +36,29 @@ const questions = [
 ];
 
 function FlashCard() {
+  const [selectedId, setSelectedId] = useState(0);
+  function handleCardClick(id) {
+    setSelectedId(id !== selectedId ? id : null);
+  }
   return (
     <div className="container">
       <div className="main-content">
         <div className="flash-cards">
           {questions.map((question) => (
-            <div className="flash-card">
-              <p>{question.question}</p>
+            <div
+              onClick={() => handleCardClick(question.id)}
+              key={question.id}
+              className={
+                selectedId === question.id
+                  ? "flash-card selected"
+                  : "flash-card"
+              }
+            >
+              <p>
+                {selectedId === question.id
+                  ? question.answer
+                  : question.question}
+              </p>
             </div>
           ))}
         </div>
