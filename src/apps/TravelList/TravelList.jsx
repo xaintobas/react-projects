@@ -8,12 +8,18 @@ const initialItems = [
 ];
 
 function TravelList() {
+  const [items, setItems] = useState([]);
+
+  function handleAddItems(item) {
+    setItems((items) => [...items, item]);
+  }
+
   return (
     <div className="container">
       <div className="main-content travel-app">
         <Logo />
-        <Form />
-        <PackingList />
+        <Form onAddItems={handleAddItems} />
+        <PackingList item={items} />
         <Stats />
       </div>
     </div>
@@ -28,7 +34,7 @@ function Logo() {
   );
 }
 
-function Form() {
+function Form({ onAddItems }) {
   const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState(1);
 
@@ -37,8 +43,14 @@ function Form() {
 
     if (!description) return;
 
-    const newItems = { description, quantity, packed: false, id: Date.now };
-    console.log(newItems);
+    const newItems = {
+      description,
+      quantity,
+      packed: false,
+      id: Date.now(),
+    };
+
+    onAddItems(newItems);
   }
 
   return (
@@ -76,11 +88,11 @@ function Form() {
   );
 }
 
-function PackingList() {
+function PackingList({ item }) {
   return (
     <div className="packing-list-container card">
       <h3>Your Packing List</h3>
-      {initialItems.map((item) => (
+      {item.map((item) => (
         <div
           key={item.id}
           className={`item-list ${item.packed ? "strike" : ""}`}
@@ -89,7 +101,11 @@ function PackingList() {
         </div>
       ))}
 
-      <button className="btn-clear-list">Clear List</button>
+      {item.length !== 0 ? (
+        <button className="btn-clear-list">Clear List</button>
+      ) : (
+        ""
+      )}
     </div>
   );
 }
