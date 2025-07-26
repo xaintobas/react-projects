@@ -24,25 +24,24 @@ const apps = [
     description: "A simple flash card exercise.",
   },
 
-  // {
-  //   path: "/steps",
-  //   emoji: "🪜",
-  //   name: "Steps Navigation",
-  //   description: "A simple step navigation exercise.",
-  // },
+  {
+    path: "/stepsnavigation",
+    emoji: "🪜",
+    name: "Steps Navigation",
+    description: "A simple step navigation exercise.",
+  },
 
+  {
+    path: "/travellist",
+    emoji: "✈️",
+    name: "Tracel List",
+    description: "A simple travel list exercise.",
+  },
   // {
   //   path: "/pizzamenu",
   //   emoji: "🍕",
   //   name: "Pizza Menu",
   //   description: "A simple Pizza Menu exercise.",
-  // },
-
-  // {
-  //   path: "/travellist",
-  //   emoji: "✈️",
-  //   name: "Tracel List",
-  //   description: "A simple travel list exercise.",
   // },
 
   // {
