@@ -10,7 +10,7 @@
 .travel-app .logo h1 {
   text-align: center;
   font-family: "Monoton";
-  font-size: 4rem;
+  font-size: 3rem;
   text-transform: uppercase;
   font-weight: 400;
   word-spacing: 20px;
@@ -86,6 +86,10 @@
   text-decoration: line-through;
 }
 
+.travel-app .card .item-list .item-quantity {
+  margin-right: 0.5rem;
+}
+
 .travel-app .card .item-list .item {
   display: flex;
   align-items: center;
@@ -100,12 +104,20 @@
 
 .travel-app .card .item-delete {
   background-color: transparent;
-  font-weight: 700;
+  font-weight: 500;
+  font-size: 2.3rem;
   border: none;
   cursor: pointer;
   color: red;
   padding: 0.5rem;
   margin: 1rem;
+  border-radius: 100%;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
 }
 
 .travel-app .card .item-delete:hover {
