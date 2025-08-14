@@ -37,6 +37,14 @@ const apps = [
     name: "Tracel List",
     description: "A simple travel list exercise.",
   },
+
+  {
+    path: "/accordion",
+    emoji: "🪗",
+    name: "Accordion Component",
+    description: "A simple accordion component exercise.",
+  },
+
   // {
   //   path: "/pizzamenu",
   //   emoji: "🍕",
