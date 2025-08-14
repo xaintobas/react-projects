@@ -18,6 +18,12 @@
   padding: 2.4rem 0;
 }
 
+@media screen and (max-width: 500px) {
+  .travel-app .logo h1 {
+    font-size: 2rem;
+  }
+}
+
 .travel-app .card {
   background-color: white;
   margin: 2rem 1rem;
@@ -31,6 +37,15 @@
 .travel-app .card h3 {
   font-size: 2rem;
   text-transform: capitalize;
+}
+
+@media screen and (max-width: 500px) {
+  .travel-app .card h3 {
+    font-size: 1.4rem;
+  }
+  .travel-app .card form {
+    font-size: 1.2rem;
+  }
 }
 
 .travel-app .card form {
@@ -55,6 +70,14 @@
   padding: 1rem 1.5rem;
 }
 
+@media screen and (max-width: 500px) {
+  .travel-app .card form button {
+    margin-top: 1.5rem;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+  }
+}
+
 .travel-app .card .form-group {
   display: flex;
   flex-direction: column;
@@ -74,6 +97,44 @@
   align-items: center;
   font-weight: 500;
   margin-top: 1.5rem;
+}
+
+.packing-list-container .btn-clear-list-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.packing-list-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.packing-list-head select {
+  padding: 5px;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+}
+
+@media screen and (max-width: 500px) {
+  .packing-list-head select {
+    padding: 2px;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+  }
+}
+
+.packing-list-container .text-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem;
+  gap: 1rem;
+}
+
+.packing-list-container .text-center p {
+  color: black;
 }
 
 .travel-app .card .item-list {
@@ -155,3 +216,7 @@
   font-size: 1.7rem;
   color: white;
 }
+
+/* rgb(209 249 223) */
+
+/* rgb(241 244 247) */
