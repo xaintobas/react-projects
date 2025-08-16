@@ -11,6 +11,10 @@ import FlashCard from "./apps/FlashCard/FlashCard";
 import StepsNavigation from "./apps/StepsNavigation/StepsNavigation";
 import TravelList from "./apps/TravelList/TravelList";
 import Accordion from "./apps/Accordion/Accordion";
+import TipCalculator from "./apps/TipCalculator/TipCalculator.jsx";
+import EatSplit from "./apps/EatSplit/EatSplit.jsx";
+
+// import TipCalculator from "./apps/BillSplitter/BillSplitter.jsx";
 
 import MiniCart from "./apps/MiniCart/MiniCart";
 import QuizApp from "./apps/QuizApp/QuizApp";
@@ -29,6 +33,8 @@ function App() {
         <Route path="/stepsnavigation" element={<StepsNavigation />} />
         <Route path="/travellist" element={<TravelList />} />
         <Route path="/accordion" element={<Accordion />} />
+        <Route path="/tip-calculator" element={<TipCalculator />} />
+        <Route path="/eat-split" element={<EatSplit />} />
 
         <Route path="/minicart" element={<MiniCart />} />
         <Route path="/quizapp" element={<QuizApp />} />

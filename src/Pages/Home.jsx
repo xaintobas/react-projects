@@ -45,6 +45,20 @@ const apps = [
     description: "A simple accordion component exercise.",
   },
 
+  {
+    path: "/tip-calculator",
+    emoji: "💰",
+    name: "Tip Calculator Component",
+    description: "A simple tip calculator component exercise.",
+  },
+
+  {
+    path: "/eat-split",
+    emoji: "🍽️",
+    name: "Eat and Split Bill Component",
+    description: "A simple eat and split bill component exercise.",
+  },
+
   // {
   //   path: "/pizzamenu",
   //   emoji: "🍕",
