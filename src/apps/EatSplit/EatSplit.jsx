@@ -61,6 +61,10 @@ const EatSplit = () => {
     <div className="container">
       <div className="main-content eat-split">
         <h1>Eat Split Component</h1>
+        <p className="app-description">
+          A web application to help you and your friends split bills. Easily add
+          friends, record shared expenses, and see who owes who.
+        </p>
         <div className="eat-split-app">
           <div className="sidebar">
             <FriendList
