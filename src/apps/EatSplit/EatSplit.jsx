@@ -8,12 +8,6 @@ import FormAddFriend from "./components/FormAddFriend";
 const EatSplit = () => {
   const initialFriends = [
     {
-      id: 1001,
-      name: "Stephen",
-      image: "https://i.pravatar.cc/48?u=933372",
-      balance: -7,
-    },
-    {
       id: 1002,
       name: "James",
       image: "https://i.pravatar.cc/48?u=933378",
@@ -25,12 +19,42 @@ const EatSplit = () => {
       image: "https://i.pravatar.cc/48?u=933373",
       balance: 0,
     },
+    {
+      id: 1001,
+      name: "Stephen",
+      image: "https://i.pravatar.cc/48?u=933372",
+      balance: -7,
+    },
   ];
 
   const [friends, setFriends] = useState(initialFriends);
+  const [selectedFriend, setSelectedFriend] = useState(null);
+  const [showAddFriend, setShowAddFriend] = useState(null);
+
+  function toogleAddFriend() {
+    setShowAddFriend(!showAddFriend);
+    setSelectedFriend(null);
+  }
 
   function handleAddFriend(newFriend) {
     setFriends((friends) => [...friends, newFriend]);
+  }
+
+  function handleSelectedFriend(friend) {
+    const selected = selectedFriend?.id === friend.id;
+    setSelectedFriend(selected ? null : friend);
+    setShowAddFriend(null);
+  }
+
+  function handleSplitBill(value) {
+    setFriends((friends) =>
+      friends.map((friend) =>
+        friend.id === selectedFriend.id
+          ? { ...friend, balance: friend.balance + value }
+          : friend
+      )
+    );
+    setSelectedFriend(null);
   }
 
   return (
@@ -39,14 +63,22 @@ const EatSplit = () => {
         <h1>Eat Split Component</h1>
         <div className="eat-split-app">
           <div className="sidebar">
-            <FriendList friends={friends} />
-
-            <FormAddFriend onAddFriend={handleAddFriend} />
-
-            <Button>Close</Button>
+            <FriendList
+              friends={friends}
+              selectedFriend={selectedFriend}
+              onSelectFriend={handleSelectedFriend}
+            />
+            {showAddFriend && <FormAddFriend onAddFriend={handleAddFriend} />}
+            <Button onClick={toogleAddFriend}>
+              {showAddFriend ? "Close" : "Add Friend"}
+            </Button>
           </div>
-
-          <FormSplitBill />
+          {selectedFriend && (
+            <FormSplitBill
+              selectedFriend={selectedFriend}
+              onSplitBill={handleSplitBill}
+            />
+          )}
         </div>
       </div>
     </div>
