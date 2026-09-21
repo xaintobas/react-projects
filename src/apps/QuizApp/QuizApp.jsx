@@ -1,11 +1,7 @@
-import "./QuizApp.css";
+import React from "react";
 
-function QuizApp() {
-  return (
-    <>
-      <h1>Quiz App</h1>
-    </>
-  );
-}
+const QuizApp = () => {
+  return <div>QuizApp</div>;
+};
 
 export default QuizApp;

@@ -1,231 +1,65 @@
-import "./DevCard.css";
-import Image from "./card-img.png";
+import React from "react";
+import developers from "./developers.js";
 
-const developers = [
-  {
-    name: "Stephen Obayuwana",
-    bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate tenetur alias maiores enim ipsum dolore, nemo architecto distinctio temporibus libero?",
-    avatar: "./assets/DevCard/001.png",
-    skills: [
-      {
-        skill: "React",
-        level: "pro",
-      },
-      {
-        skill: "JavaScript",
-        level: "beg",
-      },
-      {
-        skill: "HTML",
-        level: "pro",
-      },
-      {
-        skill: "CSS",
-        level: "adv",
-      },
-      {
-        skill: "GitHub",
-        level: "adv",
-      },
-      {
-        skill: "WordPress",
-        level: "pro",
-      },
-    ],
-  },
-  {
-    name: "Wura Adedara",
-    bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate tenetur alias maiores enim ipsum dolore, nemo architecto distinctio temporibus libero?",
-    avatar: "./assets/DevCard/006.png",
-    skills: [
-      {
-        skill: "Ruby",
-        level: "beg",
-      },
-      {
-        skill: "WordPress",
-        level: "adv",
-      },
-      {
-        skill: "Python",
-        level: "pro",
-      },
-      {
-        skill: "Website Design",
-        level: "adv",
-      },
-      {
-        skill: "SQL",
-        level: "adv",
-      },
-    ],
-  },
-  {
-    name: "Johnson Peter",
-    bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate tenetur alias maiores enim ipsum dolore, nemo architecto distinctio temporibus libero?",
-    avatar: "./assets/DevCard/002.png",
-    skills: [
-      {
-        skill: "Videography",
-        level: "adv",
-      },
-      {
-        skill: "Photoshop",
-        level: "beg",
-      },
-      {
-        skill: "Corel Draw",
-        level: "pro",
-      },
-      {
-        skill: "CapCut",
-        level: "adv",
-      },
-    ],
-  },
-  {
-    name: "Daniel Elliot",
-    bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate tenetur alias maiores enim ipsum dolore, nemo architecto distinctio temporibus libero?",
-    avatar: "./assets/DevCard/003.png",
-    skills: [
-      {
-        skill: "Photography",
-        level: "pro",
-      },
-      {
-        skill: "Canva",
-        level: "beg",
-      },
-      {
-        skill: "Photoshop",
-        level: "beg",
-      },
-      {
-        skill: "Corel Draw",
-        level: "pro",
-      },
-      {
-        skill: "CapCut",
-        level: "adv",
-      },
-    ],
-  },
-  {
-    name: "Tolu Taju",
-    bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate tenetur alias maiores enim ipsum dolore, nemo architecto distinctio temporibus libero?",
-    avatar: "./assets/DevCard/004.png",
-    skills: [
-      {
-        skill: "Figma",
-        level: "beg",
-      },
-      {
-        skill: "Adobe Illustrator",
-        level: "adv",
-      },
-      {
-        skill: "Filmora",
-        level: "pro",
-      },
-      {
-        skill: "Camtasia",
-        level: "beg",
-      },
-      {
-        skill: "Corel Draw",
-        level: "adv",
-      },
-    ],
-  },
-  {
-    name: "Emmanuella Osifo",
-    bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate tenetur alias maiores enim ipsum dolore, nemo architecto distinctio temporibus libero?",
-    avatar: "./assets/DevCard/005.png",
-    skills: [
-      {
-        skill: "Ruby",
-        level: "pro",
-      },
-      {
-        skill: "Svelte",
-        level: "beg",
-      },
-      {
-        skill: "Python",
-        level: "pro",
-      },
-      {
-        skill: "VB .Net",
-        level: "adv",
-      },
-      {
-        skill: "Website Design",
-        level: "beg",
-      },
-    ],
-  },
-];
-
-function DevCard() {
+const DevCard = () => {
   return (
-    <div className="container">
-      <div className="main-content">
-        <div className="cards">
-          {developers.map((dev, index) => (
-            <Card
-              key={index}
-              name={dev.name}
-              bio={dev.bio}
-              avatar={dev.avatar}
-              skills={dev.skills}
-            />
+    <>
+      <div className="text-slate-300 text-center">
+        <h1 className="text-[#679ff5] font-bold text-3xl">
+          Developer Profile Card
+        </h1>
+        <p className="mt-2 text-[18px]">A simple develper profile card.</p>
+      </div>
+      <div className="my-0 mx-auto">
+        <Developers />
+      </div>
+    </>
+  );
+};
+
+const Developers = () => {
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {developers.map((developer) => (
+        <DeveloperCard key={developer.name} developer={developer} />
+      ))}
+    </div>
+  );
+};
+
+const DeveloperCard = ({ developer: { name, bio, avatar, skills } }) => {
+  return (
+    <div className="bg-[#1e293b] rounded-b-lg pb-5 hover:scale-103 duration-300 hover:shadow-2xs hover:shadow-[#3a67aa] max-w-100">
+      <img src={avatar} alt="" className="rounded-t-lg" />
+      <div className="px-8 py-5">
+        <h3 className="font-bold text-2xl">{name}</h3>
+        <p className="text-slate-300 text-[15px] mt-3 mb-5">{bio}</p>
+        <div className="flex flex-wrap gap-3">
+          {skills.map((skill) => (
+            <div
+              key={`${skill.skill}${skill.level}`}
+              className={`${
+                skill.level === "beg"
+                  ? "bg-red-400"
+                  : skill.level === "pro"
+                    ? "bg-green-400"
+                    : "bg-purple-400"
+              } px-2 py-1 rounded font-bold text-[12px]`}
+            >
+              <span>{skill.skill}</span>
+              <span>
+                {skill.level === "beg"
+                  ? " 👶"
+                  : skill.level === "pro"
+                    ? " 👍"
+                    : " 💪"}
+              </span>
+            </div>
           ))}
         </div>
       </div>
     </div>
   );
-}
-
-function Card({ avatar, name, bio, skills }) {
-  return (
-    <div className="card">
-      <img className="avatar" src={avatar} alt="avatar" />
-      <div className="description">
-        <div className="intro">
-          <h1>{name}</h1>
-          <p>{bio}</p>
-        </div>
-        <div className="skills">
-          <ul>
-            {skills.map((skill, index) => {
-              const bgColor =
-                skill.level === "beg"
-                  ? "red"
-                  : skill.level === "pro"
-                  ? "green"
-                  : "purple";
-              const emoji =
-                skill.level === "beg"
-                  ? "👶"
-                  : skill.level === "pro"
-                  ? "👍"
-                  : "💪";
-
-              return (
-                <li
-                  className="skill-level"
-                  key={index}
-                  style={{ backgroundColor: bgColor }}
-                >
-                  {skill.skill} {emoji}
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      </div>
-    </div>
-  );
-}
+};
 
 export default DevCard;

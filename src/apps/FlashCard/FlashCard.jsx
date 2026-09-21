@@ -1,70 +1,55 @@
-import { useState } from "react";
-import "./FlashCard.css";
+import React, { useState } from "react";
+import questions from "./questions.js";
 
-const questions = [
-  {
-    id: 3457,
-    question: "What language is React based on?",
-    answer: "JavaScript",
-  },
-  {
-    id: 7336,
-    question: "What are the building blocks of React apps?",
-    answer: "Components",
-  },
-  {
-    id: 8832,
-    question: "What's the name of the syntax we use to describe a UI in React?",
-    answer: "JSX",
-  },
-  {
-    id: 1297,
-    question: "How to pass data from parent to child components?",
-    answer: "Props",
-  },
-  {
-    id: 9103,
-    question: "How to give components memory?",
-    answer: "useState hook",
-  },
-  {
-    id: 2002,
-    question:
-      "What do we call an input element that is completely synchronised with state?",
-    answer: "Controlled element",
-  },
-];
-
-function FlashCard() {
-  const [selectedId, setSelectedId] = useState(0);
-  function handleCardClick(id) {
-    setSelectedId(id !== selectedId ? id : null);
-  }
+const FlashCard = () => {
   return (
-    <div className="container">
-      <div className="main-content">
-        <div className="flash-cards">
-          {questions.map((question) => (
-            <div
-              onClick={() => handleCardClick(question.id)}
-              key={question.id}
-              className={
-                selectedId === question.id
-                  ? "flash-card selected"
-                  : "flash-card"
-              }
-            >
-              <p>
-                {selectedId === question.id
-                  ? question.answer
-                  : question.question}
-              </p>
-            </div>
-          ))}
-        </div>
+    <>
+      <div className="text-slate-300 text-center">
+        <h1 className="text-[#679ff5] font-bold text-3xl">Date Counter</h1>
+        <p className="mt-2 text-[18px]">A simple date counter component.</p>
       </div>
+      <div className="my-0 mx-auto">
+        <Questions />
+      </div>
+    </>
+  );
+};
+
+const Questions = () => {
+  const [selected, setSelected] = useState(null);
+
+  const handleToggleSelected = (id) => {
+    id === selected ? setSelected(null) : setSelected(id);
+  };
+
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+      {questions.map((question) => (
+        <QuestionCard
+          key={question.id}
+          questionObj={question}
+          selected={selected}
+          setSelected={setSelected}
+          handleToggleSelected={handleToggleSelected}
+        />
+      ))}
     </div>
   );
-}
+};
+
+const QuestionCard = ({
+  selected,
+  handleToggleSelected,
+  questionObj: { id, question, answer },
+}) => {
+  return (
+    <div
+      onClick={() => handleToggleSelected(id)}
+      className={`flex items-center justify-center ${selected === id ? "bg-[#4589ee]" : "bg-[#1b273a]"} p-7 text-center cursor-pointer rounded w-full max-w-80 min-h-40 border border-[#495c7a] hover:scale-103 transition-all duration-300`}
+    >
+      <h1>{selected === id ? answer : question}</h1>
+    </div>
+  );
+};
 
 export default FlashCard;

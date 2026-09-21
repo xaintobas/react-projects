@@ -1,11 +1,7 @@
-import "./ToDoApp.css";
+import React from "react";
 
-function ToDoApp() {
-  return (
-    <>
-      <h1>ToDo App</h1>
-    </>
-  );
-}
+const TodoApp = () => {
+  return <div>TodoApp</div>;
+};
 
-export default ToDoApp;
+export default TodoApp;

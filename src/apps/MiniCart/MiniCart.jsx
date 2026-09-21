@@ -1,11 +1,7 @@
-import "./MiniCart.css";
+import React from "react";
 
-function MiniCart() {
-  return (
-    <>
-      <h1>Mini Cart</h1>
-    </>
-  );
-}
+const MiniCart = () => {
+  return <div>MiniCart</div>;
+};
 
 export default MiniCart;

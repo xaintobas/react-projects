@@ -1,120 +1,48 @@
 import React from "react";
-import "./Home.css";
+import ProjectData from "../projects.js";
 import { Link } from "react-router-dom";
 
-const apps = [
-  {
-    path: "/devcard",
-    emoji: "🧑‍💻",
-    name: "Developer Card",
-    description: "A simple developer card exercise.",
-  },
-
-  {
-    path: "/datecounter",
-    emoji: "📅",
-    name: "Date Counter",
-    description: "A date counter exercise",
-  },
-
-  {
-    path: "/flashcard",
-    emoji: "🃏",
-    name: "Flash Card",
-    description: "A simple flash card exercise.",
-  },
-
-  {
-    path: "/stepsnavigation",
-    emoji: "🪜",
-    name: "Steps Navigation",
-    description: "A simple step navigation exercise.",
-  },
-
-  {
-    path: "/travellist",
-    emoji: "✈️",
-    name: "Tracel List",
-    description: "A simple travel list exercise.",
-  },
-
-  {
-    path: "/accordion",
-    emoji: "🪗",
-    name: "Accordion Component",
-    description: "A simple accordion component exercise.",
-  },
-
-  {
-    path: "/tip-calculator",
-    emoji: "💰",
-    name: "Tip Calculator Component",
-    description: "A simple tip calculator component exercise.",
-  },
-
-  {
-    path: "/eat-split",
-    emoji: "🍽️",
-    name: "Eat and Split Bill Component",
-    description: "A simple eat and split bill component exercise.",
-  },
-
-  // {
-  //   path: "/pizzamenu",
-  //   emoji: "🍕",
-  //   name: "Pizza Menu",
-  //   description: "A simple Pizza Menu exercise.",
-  // },
-
-  // {
-  //   path: "/todo",
-  //   emoji: "📝",
-  //   name: "To-Do List App",
-  //   description: "A simple to-do list application to manage tasks.",
-  // },
-
-  // {
-  //   path: "/minicart",
-  //   emoji: "🛒",
-  //   name: "Mini Cart App",
-  //   description: "A simple eCommerce app with cart functionality.",
-  // },
-
-  // {
-  //   path: "/crypto",
-  //   emoji: "🪙",
-  //   name: "Crypto Price",
-  //   description: "A simple crypto price view exercise.",
-  // },
-];
-
-function Home() {
+const Home = () => {
   return (
-    <div className="container">
-      <div className=" main-content">
-        <div className="top-content">
-          <h1 className="site-title">React Mini-Projects Showcase</h1>
-          <p className="site-description">
-            A collection of small applications built to practice while learning
-            ⚛️ React. Click on a card to each excercise.
-          </p>
-        </div>
-        <div className="app-container">
-          {apps.map((app) => (
-            <Link key={app.path} to={app.path} className="app-card">
-              <div className="card-content">
-                <span className="card-emoji">{app.emoji}</span>
-                <span>
-                  <h2>{app.name}</h2>
-                  <p>{app.description}</p>
-                </span>
-              </div>
-            </Link>
-          ))}
-        </div>
+    <>
+      <div className="text-slate-300 text-center">
+        <h1 className="text-[#679ff5] font-bold text-3xl">
+          React Mini-Projects Showcase
+        </h1>
+        <p className="mt-2 text-[18px]">
+          A collection of small applications built to practice while learning ⚛️
+          React. Click on a card to each excercise.
+        </p>
       </div>
-    </div>
+      <div className="">
+        <Projects />
+      </div>
+    </>
   );
-}
+};
+
+const Projects = () => {
+  return (
+    <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+      {ProjectData.map((projectObj) => (
+        <Project key={projectObj.id} projectObj={projectObj} />
+      ))}
+    </ul>
+  );
+};
+
+const Project = ({ projectObj: { url, title, description, emoji } }) => {
+  return (
+    <li className="bg-[#1e293b] rounded-lg hover:scale-103 hover:shadow-2xs hover:shadow-[#3a67aa] transition-transform duration-500 text-slate-200">
+      <Link to={url} className="flex items-center py-6 px-5  gap-x-3 h-full">
+        <div className="text-2xl">{emoji}</div>
+        <div>
+          <h3 className="text-[1.2rem] font-bold">{title}</h3>
+          <p className="text-[1rem] font-normal">{description}</p>
+        </div>
+      </Link>
+    </li>
+  );
+};
 
 export default Home;

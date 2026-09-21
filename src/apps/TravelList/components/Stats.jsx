@@ -1,22 +1,23 @@
-export default function Stats({ items }) {
-  if (!items.length)
+const Stats = ({ items }) => {
+  if (!items.length) {
     return (
-      <footer className="stats">
+      <div className="bg-[#132f72] py-2.5 px-2.5 text-center roundeds">
         <em>Start adding some items to your packing list 🚀</em>
-      </footer>
+      </div>
     );
-
-  const numItems = items.length;
-  const numPacked = items.filter((item) => item.packed).length;
-  const percentagePacked = Math.round((numPacked / numItems) * 100);
-
+  }
+  const packedItems = items.filter((item) => item.packed).length;
+  const percentagePacked = Math.round((packedItems / items.length) * 100);
+  // console.log(packedItems);
   return (
-    <footer className="stats">
+    <div className="bg-[#132f72] py-2.5 px-2.5 text-center roundeds">
       <em>
         {percentagePacked === 100
-          ? "You got everything! Ready to go ✈️"
-          : `💼 You have ${numItems} items on your list, and you have already packed ${numPacked} (${percentagePacked}%)`}
+          ? `You have packed everything. Ready to go! ✈️`
+          : `💼 You have ${items.length} items on your list, and you have already packed ${packedItems} (${percentagePacked}%)`}
       </em>
-    </footer>
+    </div>
   );
-}
+};
+
+export default Stats;

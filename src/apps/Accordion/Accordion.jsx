@@ -1,6 +1,5 @@
-import { useState } from "react";
-import "./Accordion.css";
-
+import { Car } from "lucide-react";
+import React, { useState } from "react";
 const faqs = [
   {
     title: "Who are you?",
@@ -24,55 +23,61 @@ const faqs = [
   },
 ];
 
-function Accordion() {
-  const [currentOpen, setCurrentOpen] = useState(null);
+const Accordion = () => {
+  const [open, setOpen] = useState(0);
+
+  const handleToogle = (number) => {
+    setOpen((o) => (o == number ? null : number));
+  };
 
   return (
-    <div className="container">
-      <div className="main-content accordion-app">
-        <h1>Accordion Component Exercise</h1>
-        <div className="accordion-items">
-          {faqs.map((faq, index) => (
-            <AccordionItem
-              currentOpen={currentOpen}
-              onOpen={setCurrentOpen}
-              number={index}
-              title={faq.title}
-              text={faq.text}
-              key={faq.title}
-            />
-          ))}
+    <>
+      <div className="text-slate-300 text-center">
+        <h1 className="text-[#679ff5] font-bold text-3xl">Accordion</h1>
+        <p className="mt-2 text-[18px]">A simple Accordion project.</p>
+      </div>
+      <div className="my-0 mx-auto w-full md:max-w-150">
+        {faqs.map((faq, index) => (
+          <Card
+            key={index}
+            faq={faq}
+            number={index}
+            onToggle={handleToogle}
+            open={open}
+          />
+        ))}
+      </div>
+    </>
+  );
+};
+
+const Card = ({ faq, number, onToggle, open }) => {
+  const currentlyOpened = open === number;
+  return (
+    <div
+      className={`flex flex-col gap-y-4 bg-[#1e293b] pt-4 ${currentlyOpened ? "pb-5" : ""} px-5 ${currentlyOpened ? "rounded-b-lg" : ""} ${currentlyOpened ? "border-t-4" : ""} border-[#4c7abd] mt-8`}
+    >
+      <div
+        onClick={() => onToggle(number)}
+        className="flex justify-between text-[20px] font-bold cursor-pointer"
+      >
+        <div
+          className={`flex items-center gap-x-4 mr-8 ${currentlyOpened ? "text-[#3475d8]" : "text-slate-200"}`}
+        >
+          <h2 className={`${currentlyOpened ? "" : "text-slate-500"}`}>
+            {number <= 9 ? `0${number + 1}` : number}
+          </h2>
+          <h2>{faq.title}</h2>
         </div>
+        <div>{currentlyOpened ? "-" : "+"}</div>
+      </div>
+      <div>
+        {currentlyOpened && (
+          <p className={`text-[18px] text-slate-300`}>{faq.text}</p>
+        )}
       </div>
     </div>
   );
-}
-
-function AccordionItem({ number, title, text, currentOpen, onOpen }) {
-  const isOpen = number === currentOpen;
-
-  function handleAccordionToggle() {
-    onOpen(isOpen ? null : number);
-  }
-
-  return (
-    <div className={isOpen ? "accordion-item open" : "accordion-item"}>
-      <div className="accordion-head" onClick={handleAccordionToggle}>
-        <span>
-          <p className="accordion-number">
-            {number < 9 ? `0${number + 1}` : `${number + 1}`}
-          </p>
-          <p className="accordion-title">{title}</p>
-        </span>
-        <p className="accordion-icon">{isOpen ? "-" : "+"}</p>
-      </div>
-      {isOpen && (
-        <div className="accordion-body">
-          <p>{text}</p>
-        </div>
-      )}
-    </div>
-  );
-}
+};
 
 export default Accordion;
