@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
-import Home from "./pages/Home";
-import Page404 from "./pages/Page404";
+import Home from "./pages1/Home";
+import Page404 from "./pages1/Page404";
 import DevCard from "./apps/devcard/DevCard";
 import FlashCard from "./apps/flashcard/FlashCard";
 import DateCounter from "./apps/datecounter/DateCounter";
